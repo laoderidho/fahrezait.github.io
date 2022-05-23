@@ -123,4 +123,31 @@ Dan kerja Sebagai It`; //hanya berlaku jika memakai tanda backtip (``) jika mema
 
 document.getElementById("inipre").innerHTML= pre;
 
+// melakukan konversi antar tipe data 
+
+
+let konvert = "12";
+let konvert1 = 12;
+
+konvert = parseInt("12");
+
+let sum = konvert + konvert1;
+
+document.getElementById("ini7").innerHTML = sum ; 
+
+// tipe data Array 
+
+let names = [];
+
+names.push("La Ode Ridho Fahreza");
+names.push("Ridho");
+names.push("reza");
+
+document.getElementById("ini8").innerHTML= names;
+
+let names1 = [12,15,121,1213,131211];
+
+document.getElementById("ini9").innerHTML = names1;
+
+
 

@@ -1,4 +1,4 @@
-// ini hanya Untuk tulisan di dalam ID jika ingin  tahu maka lihat id du html
+// ini hanya Untuk tulisan di dalam ID jika ingin  tahu maka lihat id di html
 document.getElementById("ini").innerHTML="Ini adalah Ridho";
 
 // untype javascript bisa mengubah variabel di mana variabel yang baru yang akan di input 
@@ -142,6 +142,12 @@ let names = [];
 names.push("La Ode Ridho Fahreza");
 names.push("Ridho");
 names.push("reza");
+names.push("Affa");
+names[1] = "ridho"; //untuk mengubah indeks dalam array
+delete names[3]; //untuk mengubah indeks dalam Array
+var arraylength = names.length;
+
+console.log(arraylength); //untuk melihat panjang array
 
 document.getElementById("ini8").innerHTML= names;
 
@@ -149,5 +155,107 @@ let names1 = [12,15,121,1213,131211];
 
 document.getElementById("ini9").innerHTML = names1;
 
+// tipe data objek
 
+const names2 = {}
 
+names2["name"] = "Ridho"; 
+names2["age"] = "20 years old";
+names2["hobby"] = "chess";
+// cara lama
+console.log(names2);
+
+const names3 = {
+    name : "Ridho",
+    age : "20 years old",
+    hobby : "chess"
+};
+console.log(`name: ${names3.name}`);
+console.log(`age: ${names3.age}`);
+console.log(`Hobby: ${names3.hobby}`)
+console.log(names3);
+
+// if dan else expresion 
+
+const ujian = 90;
+const kehadiran = 90;
+let hasil1;
+
+if(ujian>=90 && kehadiran >=90){
+    hasil1 = "A";
+}else if(ujian>=75 && kehadiran >=75){
+    hasil1 = "C";
+}else{
+    hasil = "F";
+}
+
+document.getElementById("ini10").innerHTML= hasil1;
+
+// alert di gunakan untuk memberi peringatan berupa popup di text
+// Contoh 
+
+// alert("ini adalah teks belajar javascript")
+
+// promt di gunakan untuk membuat nama anda masuk di alert 
+// contoh 
+
+// const myname = prompt("what is your name");
+// alert(`hello ${myname}`);
+
+// konfirm di gunakan apakah anda ingin masuk atau tidak 
+
+const konfirmasi= confirm("apakah anda ingin belajar");
+if (konfirmasi){
+    const myname = prompt("what is your name");
+    alert(`Hello ${myname}`);
+}else{
+    alert("thanks for reading");
+}
+
+// undifined
+// adalah variabel yang datanya belum di definisikan 
+// hal ini menjadi membingungkan karena sama seperti error
+// contoh 
+
+let definisi = "Ridho";
+
+if (definisi === undefined){
+    console.log("tak terdefinisi");
+}else{
+    console.log("terdefinisi");
+}
+
+// null adalah representasi data kosong atau data yang akan di tambahkan nanti 
+let nilainull= null;
+
+if (nilainull === undefined){
+    console.log("nilai tak terdefinisi");
+}else if (nilainull === null){
+    console.log("nilai kosong");
+}else {
+    console.log("nilai ada");
+}
+
+// Switch statement di mulai eksekusinya dengan case dan di akhiri dengan break
+// Contoh
+ 
+const nilaiswitch = "A";
+
+switch(nilaiswitch){
+    case "A" : 
+        console.log("ini adalah Nilai A");
+        break;
+    case "B" : 
+        console.log("ini adalah Nilai B");
+        break;
+    case "C" : 
+        console.log("ini adalah Nilai C");
+        break;
+    case "D" : 
+        console.log("ini adalah Nilai D");
+        break;
+    default :
+        console.log("ini adalah default");
+};
+
+// in operator

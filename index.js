@@ -204,13 +204,13 @@ document.getElementById("ini10").innerHTML= hasil1;
 
 // konfirm di gunakan apakah anda ingin masuk atau tidak 
 
-const konfirmasi= confirm("apakah anda ingin belajar");
-if (konfirmasi){
-    const myname = prompt("what is your name");
-    alert(`Hello ${myname}`);
-}else{
-    alert("thanks for reading");
-}
+// const konfirmasi= confirm("apakah anda ingin belajar");
+// if (konfirmasi){
+//     const myname = prompt("what is your name");
+//     alert(`Hello ${myname}`);
+// }else{
+//     alert("thanks for reading");
+// }
 
 // undifined
 // adalah variabel yang datanya belum di definisikan 
@@ -257,5 +257,49 @@ switch(nilaiswitch){
     default :
         console.log("ini adalah default");
 };
+// ternary operator
+// Sama dengan properti If Else tapi ini hanya untuk 2 percabangan saja 
 
-// in operator
+const nilaiku = 60;
+const ucapan = nilai >= 75 ? "selamat Anda Lulus" : "Silahkan coba lagi";
+
+document.getElementById("ini10").innerHTML = ucapan;
+// nullish coalessing Operator 
+// hampir sama dengan ternary operator tetapi nullish operator khusus untuk kondisi yang bernilai 
+// null dan undifined
+
+let parameter; 
+ let data = parameter ?? "Nilai Default"; 
+
+ console.log(data);
+
+//  Optional chaining 
+// untuk mengetahui undifined dari error 
+
+const person = {
+    addres : {
+        country : "Indonesia"
+    }
+}
+
+let country = person?.addres?.country;
+
+console.log(country);
+
+// Operator logika non boolean 
+// sistemnya sama seperti if else 
+const person1 = {
+    firstname : "La Ode",
+    lastname : " Ridho Fahreza"
+};
+
+const namaku = person1.firstname || person1.lastname;
+
+console.log(namaku);
+
+// for loop
+// akan selalu berulang jika kondisi terpenuhi 
+
+for (let counter =0;counter <=10; counter++){
+    document.writeln(`<p> ini adalah perulangan ke ${counter} </p>`);
+}

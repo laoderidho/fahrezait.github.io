@@ -303,3 +303,199 @@ console.log(namaku);
 for (let counter =0;counter <=10; counter++){
     document.writeln(`<p> ini adalah perulangan ke ${counter} </p>`);
 }
+
+// while loop
+
+let counter1 = 0;
+
+while(counter1<=3){
+    document.writeln(`<p> Ini adalah perulangan ke  ${counter1}</p>`);
+    counter1++;
+}
+
+// do while loop 
+// adalah suatu looping yang eksekusinya akan di jalankan atau di ulangi jika kondisinya true 
+// maka bisa di ulang jika false maka tidak bisa di ulang
+
+let counter2 = 8;
+    do{
+        console.log(`"Ini adalah perulangan ke " ${counter2}`)
+        counter2++;
+    }while(counter2<=20);
+
+// modulus adalah sisa bagi 
+// contoh 
+
+let aku3 = 14%3; //=2 di karenakan 14 adalah hasil dari 3 kali 4 dan mempunyai sisa bagi 2
+
+console.log(aku3);
+// break sama sistemnya dengan do while
+
+let counter3 = 1;
+
+while (true){
+    console.log(`Ini adalah perulangan ke ${counter3}`);
+    counter3++;
+    if(counter3>10){
+        break;
+    }
+}
+
+//continue
+
+for(let counter4=1; counter4<=20; counter4++){
+    if(counter4%2==0){
+        continue; //artinya kondisi yang if(counter4%2==0) tidak di outputkan
+    }
+    document.writeln(`<p>Ini adalah bilangan ganjil ${counter4}</p>`)
+}
+
+//with statemen     
+/* merupakan fitur yang di gunakan untuk menurunkan sebuah scope data
+   dengan menggunakan with statemen kita bisa  mengakses property dalam sebuah 
+   data tanpa harus menyebut datanya*/
+
+   const person2 = {
+    names4 : "La Ode",
+    names5 : "Ridho",
+    names6 : "Fahreza",
+   }
+
+   with(person2){
+    console.log(names4);
+    console.log(names5);
+    console.log(names6);
+   }
+//Tidak di rekomendasikan 
+
+
+/* function 
+adalah blok program yang akan berjalan saat kita panggil
+di bahasa program lain ini bisa di sebut dengan method 
+bisa di panggil function dengan menggunakan nama function lalu di ikuti dengan kurung ()*/
+// contoh
+
+function myFunction(){
+    for(let i=0; i<=30; i++){
+        if (i%3==0 && i%5==0){
+            document.writeln("Fizzbuzz");
+        }else if(i%3==0){
+            document.writeln("fizz");
+        }else if(i%5==0){
+            document.writeln("buzz");
+        }else{
+            document.writeln(i);
+        }
+       
+    }
+}
+
+// myFunction();
+
+
+/* function parameter 
+kita bisa mengirim informasi ke function yang ingin kita panggil 
+untuk melakukan hal tersebut kita perlu menambahkan paramater atau argument di function 
+yang sudah kita buat
+parameter di tempatkan di dalam kurung () deklarasi method
+parameter bisa lebih dari 1 jika lebih dari 1 harus di pisahkan oleh tanda koma*/
+// contoh 
+
+function myFunction1(firstName, lastName /*ini adalah parameter*/  ){ 
+    console.log(`Hello ${firstName} ${lastName}`);
+}
+
+myFunction1("Ridho", "Fahreza");
+
+/*function return value*/
+
+function sayHello(names7, names8){
+    const say =`hello ${names7} ${names8}`;
+    return say;
+}
+
+const result1 = sayHello("Ridho" ,"Fahreza")
+console.log(result1);
+
+// function return value lebih dari 1 
+function getFinalScore(value){
+    if(value>90){
+        return "A";
+    }else if (value>=80){
+        return "B";
+    }else if (value>=70){
+        return "C";
+    }else if (value>=60){
+        return "D";
+    }else if (value>=50){
+        return "E";
+    }else{
+        return "F";
+    }
+}
+const result2 = getFinalScore(80);
+console.log(`nilai anda adalah ${result2}`);
+
+// for in dan for of
+
+let tele = ["Tingkiwingki","Dipsi","Lala","Po"];
+
+		let nomor = ["2","6","7","12"];
+
+		// for in
+		for (let x /* adalah variabel yang berisi indeks */ in tele) {
+		  console.log(x);
+		};
+
+		// for of
+		for (let  x /* adalah variabel yang berisi isi array */ of tele) {
+		  console.log(x);
+		};
+
+		// for in
+		for (let y in nomor) {
+		  console.log(y);
+		};
+
+		// for of
+		for (let y of nomor) {
+		  console.log(y);
+		};
+// menghentikan eksekusi dengan value 
+
+function isContains(array, searchValue){
+    for (const element of array){
+        console.log(`iterasi elemen ${element}`)
+        if (element ===searchValue){
+            return true; //akan di hentikan jika nilai ini benar
+        }
+    }
+    return false
+}
+
+const array = [1,2,3,4,5,6,7,8,9];
+const search = 5;
+const found =  isContains(array, search);
+console.log(found);
+
+/* optional parameter 
+    secara default parameter di function itu optional 
+    artinya kita tidak wajib mengisi value nya ketika memanggil function
+    jika tidak ada value yang kita kirim ke parameter ketika memanggil function maka secara
+    otomatis parameter tersebut bernilai undifined*/
+
+//contoh 
+
+function sayHello1(firstname, lastname="Not avaliable" /*default parameter */ , middlename){
+    console.log(firstname);
+    console.log(lastname);
+    console.log(middlename);
+}
+
+sayHello1("Eko");
+
+// rest parameter 
+
+
+
+

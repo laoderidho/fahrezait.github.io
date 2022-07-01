@@ -494,8 +494,139 @@ function sayHello1(firstname, lastname="Not avaliable" /*default parameter */ , 
 
 sayHello1("Eko");
 
+//aritmatika singkat
+
+function myFunction2(){
+    let u = 7;
+    u *= 5; //aritmatikanya sama dengan u = u * 5 atau bisa di bilang 7 x 5
+    return u;
+};
+
+const mtk = myFunction2();
+
+console.log(mtk);
+
 // rest parameter 
 
+function sum3(name, ...data){
+    let total = 0;
+    for (const item of data){
+        total +=item;
+    }
+    console.log(`total ${name} is ${total}`);
+}
 
+sum3('aing', 2,3,4,5);
 
+//function sebagai value 
+/* function tidak hanya bisa di gunakan sebagai kode dari program yang di eksekusi 
+tapi bisa juga di gunakan sebagai value 
+artinya function bisa di simpan di variabel, bisa juga dikirim melalui parameter ke 
+function lainnya*/
+//contoh 
+
+function fahreza12(names9){
+    console.log(`hello ${names9}`);
+}
+
+let say1 = fahreza12;
+
+fahreza12("Ridho");
+
+say1("fahreza");
+//function di parameter
+
+function giveMeName(callback){
+    callback("Ridho");
+}
+
+giveMeName(fahreza12);
+giveMeName(say1);
+
+/* anonymous function
+kita juga bisa membuat function tanpa nama function atau istilahnya adalah anonymous function
+kita bisa buat anonymous function dalam sebuah variabel atau bisa juga kita buat 
+ketika mengisi parameter */
+//contoh
+
+let say = function(name){ //function tersebut tidak memiliki nama karena di deklarasikan adalah namanya
+    console.log(`hello ${name}`);
+}
+
+say ("eko");
+
+//anonymous function di parameter
+giveMeName(function(name){
+    console.log(`Hello ${name}`);
+});
+
+//function di dalam function 
+
+/* tidak ada batasan di mana kita bisa membuat function 
+termasuk jika kita ingin membuat function di dalam sebuah function kita bisa melakukannya 
+function yang terdapat di dalam kita sebuah function 
+inner function hanya bisa di akses di tempat kita membuat function nya tidak bisa di akses di laur 
+functionnya */
+
+//contoh
+
+function outer(){
+    function inner(){
+        console.log("Inner");
+    }
+
+    inner() //harus di deklarasikan di dalam function jika tidak maka error;
+}
+
+outer();
+
+//scope 
+
+/* scope merupakan area akses dari sebuah data
+ada 2 jenis scope ,global scope, dan lokal scope
+setiap kita membuat function maka kita akan membuat local scope untuk function tersebut
+data di global scope bisa di akses dari local scope namun data di local scope hanya bisa
+di akses di local scope  */
+
+//global scope
+let counter = 0;
+
+//global scope
+function hitMe(){
+    //local scope tida bisa di akses / di panggil di luar function
+    counter ++;
+}
+
+hitMe();
+hitMe();
+
+console.log(counter);
+
+//rekursif function 
+
+//kode factorial loop
+
+function factorial(value){
+    let result = 1; 
+    for (let i =1; i<=value; i++){
+        result *=i;
+    }
+    return result;
+}
+
+console.log(factorial(7));
+console.log(1*2 *3 *4 *5 *6 *7);
+
+//kode factorial recursive
+
+function factorialRecursive(value){
+    if (value==1){
+        return 1;
+    }else {
+        return value * factorialRecursive(value-1);
+    }
+}
+
+console.log(factorialRecursive(10));
+factorialRecursive(5);
 

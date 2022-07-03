@@ -263,7 +263,7 @@ switch(nilaiswitch){
 const nilaiku = 60;
 const ucapan = nilai >= 75 ? "selamat Anda Lulus" : "Silahkan coba lagi";
 
-document.getElementById("ini10").innerHTML = ucapan;
+document.getElementById("ini11").innerHTML = ucapan;
 // nullish coalessing Operator 
 // hampir sama dengan ternary operator tetapi nullish operator khusus untuk kondisi yang bernilai 
 // null dan undifined
@@ -630,3 +630,185 @@ function factorialRecursive(value){
 console.log(factorialRecursive(10));
 factorialRecursive(5);
 
+/* function generator 
+adalah function yang di gunakan untuk membuat data generator
+generator adalah data yang bisa di iterasikan seperti array
+untuk membuat function generator kita harus menggunakan tanda * (bintang)setelah kata function
+dan untuk mengembalikan data di tiap iterasi kita bisa gunakan kata kunci yield diikuti datanya
+ */
+
+//contoh function generator sederhana 
+function* mynames(){
+    yield "La Ode";
+    yield "Ridho";
+    yield "Fahreza";
+}
+
+const names10 = mynames();
+for(const name of names10){
+    console.log(name);
+}
+
+function* myFunction3(value){
+    for(let i=1; i<=value; i++){
+        if(i%2==1){
+            yield i;
+        }
+    }
+}
+
+let names11 = myFunction3(10);
+
+for(let name of names11){
+    console.log(name);
+}
+
+/* arrow function 
+adalah alternatif pembuatan function yang lebih sederhana dari function biasanya
+namun terdapat limitasi/pembatasan dan juga tidak bisa di gunakan di segala situasi 
+sistemnya hampir sama dengan anonymous function 
+kekurangannya adalah 
+- tidak memiliki fitur arguments object
+- tidak bisa mengakses this
+- tidak bisa mengakses super */
+
+const sayHello2 = ()=>{
+    const say3 = "Hello Ridho";
+    return say3;
+}
+
+const hello3 = sayHello2();
+
+console.log(hello3);
+
+//arrow function Tanpa blok terjadi jika blok function nya sangat sederhana atau 1 baris
+//contoh 
+const sayHello3 = (name)=>console.log(`Hello ${name}`);
+
+console.log(sayHello3("Reza"));
+
+//arrow function return value 
+const sum1 = (first, second)=> first+second; //tidak memiliki kata kunci return
+
+console.log(sum1(12,31))
+
+//arrow function tanpa kurung parameter bisa dilakukan jika parameter hanya ada 1
+//contoh 
+const sayHello4 = name=>console.log(` Hello ${name}`);
+
+console.log(sayHello4("Fahreza"));
+
+//arrow function sebagai parameter 
+//contoh 
+
+function giveMeName1(callback){
+    callback("Al Fahreza");
+}
+giveMeName1((name)=>console.log(`Hello ${name}`));
+
+//object method
+
+const person3 ={
+    name:"Ridho",
+    sayHello5: function(name){
+        console.log(`Hello ${name}`); //bisa menggunakan function di dalam object
+    }
+};
+
+person3.sayHello5("Ridho fahreza Sianturi")
+
+/* kata kunci this 
+kata kunci this adalah referensi ke object miliki siapa
+tiap lokasi kunci this bisa berbeda beda referensi pemiliknya 
+dalam object method, this merupakan referensi ke object pemilik function nya 
+di global scope this merupakan referensi ke global object 
+di dalam function this merupakan referensi ke global object 
+di function dengan strick mode this adalah undifined
+dalam event this merupakan referensi ke elemen yang menerima event 
+ */
+//contoh this di object method 
+
+const person4 ={
+    name :"Ridho",
+    sayHello6 : function (name){
+        console.log(`Hello ${name} welcome to my name developer ${this.name}`); //this ini untuk memanggil object name di person
+    }
+};
+
+person4.sayHello6("nyai");
+
+//arrow function di object
+
+const person5 = {
+    name:"Ridho",
+    sayHello7:name=>console.log(`Hello ${name}`)
+}
+
+person5.sayHello7("Nyai");
+
+/* getter dan setter
+adalah kemampuan membuat function yang berbeda untuk mengambil data (getter) dan mengubah data(setter) pada sebuah
+property di object
+dengan menggunakan getter dan setter kita bisa melakukan hal apapun dalam function dalam function sebelum sebuah property
+di akses atau di ubah misalnya menambahkan validasi dan lain lain */
+
+const person6 = {
+    firstname : "Ridho",
+    lastName : "fahreza12",
+    get fullName(){
+        //getter
+        return `${this.firstname} ${this.lastName}`;
+    },
+    set fullName(val){
+        //setter
+        const array = val.split(" ");
+        this.firstname = array[0];
+        this.lastName = array[1];
+    }
+};
+
+person6.fullName ="your live";
+console.table(person6);
+
+//destructuring array
+
+const names12 = ["Ridho" ,"fahreza" ,"reza" ,"i Am" ,"Ridho" ,];
+const [myname1, myname2,myname3,myname4, ...semuanya] = names12;
+
+console.log(semuanya)
+
+//destructuring object sama seperti destructuring array cuman beda{}
+
+//destructuring di function parameter 
+function displayPerson({firstName, midleName, lastName}){
+    console.log(firstName);
+    console.log(midleName);
+    console.log(lastName);
+}
+
+const person7 = {
+        firstName:"La Ode",
+        midleName :"Ridho",
+        lastName : "Fahreza",
+}
+
+displayPerson(person7);
+
+// strick mode untuk mengetahui mana error yang hiden menjadi tampil 
+//cukup kasih kode 'use strict'
+
+/* debugger
+di gunakan untuk mencari bug atau masalah 
+dengan debugger kita bisa menghentikan kode program di posisi yang kita inginkan lalu melihat 
+semua isi variable yang ada pada saat kode program telah berhenti */
+//contoh 
+
+function createFullName(firstName, middleName, lastName){
+    // debugger;  // ini muncul kalau kita ingin melihat kesalahan program 
+    const fullName = `${firstName} ${middleName} ${lastName}`;
+    return fullName;
+}
+
+const names13 = createFullName("Ridho", "Fahreza", "Sianturi");
+
+console.log(names13);
